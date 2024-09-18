@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const db = require('./config/db');
 const healthRecordRoutes = require('./routes/healthRecordRoutes');
 const authRoutes = require('./routes/authRoutes')
+const cors = require('cors')
 
 // Loading environment variables
 dotenv.config();
@@ -11,6 +12,8 @@ dotenv.config();
 db();
 
 const app = express();
+
+app.use(cors())
 
 // Middleware for parsing JSON body
 app.use(express.json());
