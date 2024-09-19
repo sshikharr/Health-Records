@@ -29,7 +29,7 @@ const fetchRecords = async (token) => {
     return response.data;
   } catch (err) {
     console.error('Error fetching records:', err.response ? err.response.data : err.message);
-    throw err; // Propagate error to be handled in component
+    throw err; 
   }
 };
 
