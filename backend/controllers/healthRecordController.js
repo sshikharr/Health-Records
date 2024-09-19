@@ -75,3 +75,20 @@ exports.deleteHealthRecord = async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 };
+
+// Get a health record by id
+exports.getHealthRecordById = async (req, res)=>{
+  try{
+    const record = await HealthRecord.findById(req.params.id);
+    if(!record){
+      return res.status(404).json({
+        message: "No such record"
+      })
+    }
+    res.status(200).json({
+      record: record
+    })
+  }catch(e){
+    res.status(500).json({ message: 'Server error' });
+  }
+}
