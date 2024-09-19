@@ -4,18 +4,18 @@ const auth = require('../middleware/authMiddleware')
 const router = express.Router();
 
 // Get all records
-router.get('/', auth, getHealthRecords);
+router.get('/', getHealthRecords);
 
 // Create a new record
-router.post('/', auth, createHealthRecord);
+router.post('/', createHealthRecord);
 
 // Update a record
-router.put('/:id', auth, updateHealthRecord);
+router.put('/:id', updateHealthRecord);
 
 // Delete a record
-router.delete('/:id', auth, deleteHealthRecord);
+router.delete('/:id', deleteHealthRecord);
 
 // Single record
-router.get('/:id', auth, getHealthRecordById)
+router.get('/:id', getHealthRecordById)
 
 module.exports = router;
