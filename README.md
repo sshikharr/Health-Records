@@ -34,6 +34,10 @@ git clone https://github.com/sshikharr/Health-Records
 cd Health-Records/backend
 ```
 
+### Create a .env file
+- JWT_SECRET = "samplesecret"
+- DATABASE_URL = "your mongoDB connection URI"
+
 ### Install Dependencies and running backend
 Ensure you have Node.js and npm installed. Then, install the required packages with:
 
