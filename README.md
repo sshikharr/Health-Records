@@ -1,4 +1,4 @@
-# Health Tracking App - RecordDetails Component
+# Health Tracking App - RecordDetails Components
 ## Overview
 The RecordDetails component is part of the Health Tracking App, which allows users to view, edit, and delete their health records. This component displays detailed information about a specific health record, including date, body temperature, blood pressure, and heart rate. It supports a loading state with skeleton screens and provides functionality for editing and deleting records.
 
