@@ -34,6 +34,7 @@ const fetchRecords = async (token) => {
 };
 
 const Dashboard = () => {
+  const [allRecords, setAllRecords] = useState([]);
   const [records, setRecords] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -50,6 +51,7 @@ const Dashboard = () => {
       try {
         const data = await fetchRecords(token);
         setRecords(data);
+        setAllRecords(data);
       } catch (err) {
         console.log(err)
       } finally {
@@ -84,6 +86,20 @@ const Dashboard = () => {
 
   return (
     <div className="px-10 mx-auto mt-24">
+      <div className="mb-6">
+        <label className="block mb-2 text-sm font-medium text-gray-900">Search</label>
+        <input placeholder='Heart Rate (Equal or Above)' type="text" id="default-input" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " onChange={(e)=>{
+          const searchValue = e.target.value;
+          if (searchValue === '') {
+            setRecords(allRecords); 
+          } else {
+            const filteredRecords = allRecords.filter((record) =>
+              record.heartRate >= Number(searchValue)
+            );
+            setRecords(filteredRecords);
+          }
+        }}/>
+      </div>
       <h2 className="text-2xl font-bold mb-4">Your Health Records</h2>
       {records.length === 0 ? (
         <p>No records yet.</p>
